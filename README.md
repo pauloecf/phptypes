@@ -9,12 +9,14 @@ float, string, array and boolean types.
 
 Main Features:
 
-- The array class is extended from a PHP ArrayObject class.
+- PHP 5.4+.
+
+- The array class is extended from the PHP ArrayObject native class.
 
 - The array and string classes, whenever is possible, take advantatage of the method __call to reuse some native
 functions like array_* ou mb_*.
 
-- The chained syntax (or fluid sytanx) is used as much as possible, it's an easier to read and code:
+- The chained syntax (or fluid sytanx) is used as much as possible, an easier to read and code:
 
 <?php
 
