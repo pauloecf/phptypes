@@ -14,15 +14,17 @@ Main Features:
 - The array and string classes, whenever is possible, take advantatage of the method __call to reuse some native
 functions like array_* ou mb_*.
 
-- The chained syntax (or fluid sytanx) are used as much as possible, they are easier to read and code:
+- The chained syntax (or fluid sytanx) is used as much as possible, it's an easier to read and code:
 
 <?php
+
 $array = new \Type\Arr(['a', 'b', 'c']);
 
-$array->map('strtoupper')->merge->(['d', 'e'])->getArray() //output: ['A', 'B', 'C', 'd', 'e']
+$array->map('strtoupper')->merge->(['d', 'e'])->getArray(); //output: ['A', 'B', 'C', 'd', 'e']
+
 ?>
 
-- For better use methods will return other custom types:
+- Some methods return other custom types:
 
 <?php
 
@@ -36,6 +38,18 @@ $array->implode('-')->converCase(MB_CASE_UPPER)->getString(); //returns A-B-C
 
 ?>
 
-- You can perform type casting to get the primitive types with methods like:
+- You can perform type casting to get the primitive types like this:
 
-Class::getString(), Class::getInteger(), Class::getFloat, Cast::getBooelan
+Class::getString(), Class::getInteger(), Class::getFloat, Class::getBooelan
+
+<?php
+
+$integer = new \Type\Intgr(1);
+
+$integer->sum(6);
+
+$integer->getInteger();  //will return integer 7
+
+$integer->getString();  //will return string '7'
+
+?>
