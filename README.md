@@ -33,6 +33,7 @@ $array->implode('-');  //returns  object Type\Strng;
 //so you can do this:
 
 $array->implode('-')->converCase(MB_CASE_UPPER)->getString(); //returns A-B-C
+
 ?>
 
 - You can perform type casting to get the primitive types with methods like:
