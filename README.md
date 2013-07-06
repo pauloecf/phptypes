@@ -14,15 +14,31 @@ Main Features:
 - The array class is extended from the PHP ArrayObject native class.
 
 - The array and string classes, whenever is possible, take advantatage of the method __call to reuse some native
-functions like array_* ou mb_*.
+functions like array_* or mb_*. They will be mapped like this:
 
-- The chained syntax (or fluid sytanx) is used as much as possible, an easier to read and code:
+mb_substr()          => $string->substr()
+
+mb_substr_count()    => $string->substrCount()
+
+array_chunk()        => $array->chunk()
+
+array_count_values() => $array->countValues()
+
+- The float class uses __call for math functions.
+
+- The chained syntax (AKA fluid sytanx) is used as much as possible, an easier way to read and write:
 
 <?php
 
 $array = new \Type\Arr(['a', 'b', 'c']);
 
 $array->map('strtoupper')->merge->(['d', 'e'])->getArray(); //output: ['A', 'B', 'C', 'd', 'e']
+
+instead of:
+
+$array = ['a', 'b', 'c'];
+
+$array = array_merge(array_map('strtoupper', $array), ['d', 'e']);
 
 ?>
 
@@ -36,7 +52,7 @@ $array->implode('-');  //returns  object Type\Strng;
 
 //so you can do this:
 
-$array->implode('-')->converCase(MB_CASE_UPPER)->getString(); //returns A-B-C
+$array->implode('-')->convertCase(MB_CASE_UPPER)->getString(); //returns 'A-B-C'
 
 ?>
 
@@ -55,3 +71,5 @@ $integer->getInteger();  //will return integer 7
 $integer->getString();  //will return string '7'
 
 ?>
+
+- New functionalities are being added to the classes :D. So we are in version 0.0.
