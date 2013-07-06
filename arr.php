@@ -1,5 +1,5 @@
 <?php
-namespace Core\Type;
+namespace Type;
 
 class Arr extends \ArrayObject
 {
