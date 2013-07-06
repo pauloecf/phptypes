@@ -72,4 +72,6 @@ $integer->getString();  //will return string '7'
 
 ?>
 
+- PSR-2 code format.
+
 - New functionalities are being added to the classes :D. So we are in version 0.0.
